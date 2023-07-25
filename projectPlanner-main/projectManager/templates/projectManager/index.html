@@ -1,0 +1,131 @@
+{% extends 'base.html' %}
+
+{% block content %}
+      <div class="mx-auto md:w-2/3 w-full">
+
+        <div class="text-center max-w-3xl mx-auto">
+          <h2 class="font-black text-4xl sm:text-5xl">Revolutionize project management with AI</h2>
+          <p class="mt-4 text-2xl sm:text-3xl text-gray-600">No more abandoning projects.</p>
+        </div>
+
+        <form class="contents" action="{% url 'result' %}" accept-charset="UTF-8" method="post">
+          {% csrf_token %}
+          <div class="bg-black text-white rounded-2xl p-4 sm:p-8 my-4 sm:my-8">
+            <div class="text-2xl font-bold">🗃️ Describe your project</div>
+            <p class="text-xl text-gray-400">Example: Developing an E-commerce Website for a Small Business</p>
+            <textarea class="mt-2 text-lg block shadow rounded-md bg-neutral-800 border-none focus:ring-2 outline-none w-full" placeholder="Be as precise as possible" data-controller="autosize" name="description" id="description" style="overflow: hidden; overflow-wrap: break-word; resize: none; text-align: start; height: 72px;"></textarea>
+          </div>
+
+        <!-- Characters -->
+        <div class="bg-black text-white rounded-2xl p-4 sm:p-8 my-4 sm:my-8">
+          <div class="">
+            <div class="text-2xl font-bold">Who is working on the project?</div>
+            <p class="text-xl text-gray-400">Remember to add all the members of the group, including yourself.</p>
+
+            <!-- Characters list-->
+            <div id="characters" class="mt-4 space-y-4" data-template-manager-target="container">
+
+
+      <div id="new_character" data-controller="visibility" class="grid grid-cols-3 gap-6">
+         <div class="col-span-3 bg-white text-black p-4 rounded-xl">
+           <div class="flex flex-col gap-3">
+
+            <div class="flex gap-3">
+              <textarea class="block w-full flex-1 text-lg bg-neutral-200 placeholder:text-neutral-500 border-0 rounded-md focus:ring-2 resize-none" placeholder="Name" data-dynamic-form-field-target="field" name="name" id="blueprint_characters_attributes_0_name" style="height: 2.8rem; line-height: 1.5;"></textarea>
+
+              <textarea class="block w-full flex-1 text-lg bg-neutral-200 placeholder:text-neutral-500 border-0 rounded-md focus:ring-2 resize-none" placeholder="Skill" data-dynamic-form-field-target="field" name="skill" id="blueprint_characters_attributes_0_skill" style="height: 2.8rem; line-height: 1.5;"></textarea>
+
+              <textarea class="block w-full flex-1 text-lg bg-neutral-200 placeholder:text-neutral-500 border-0 rounded-md focus:ring-2 resize-none" placeholder="Weekly availability" data-dynamic-form-field-target="field" name="weekly" id="blueprint_characters_attributes_0_weeklyAvailability" style="height: 2.8rem; line-height: 1.5;"></textarea>
+            </div>
+
+
+
+            <textarea class="block w-full text-lg bg-neutral-200 placeholder:text-neutral-500 border-0 rounded-md focus:ring-2" placeholder="Anything else you'd like to add about this person?" data-dynamic-form-field-target="field" data-controller="autosize" name="other" id="blueprint_characters_attributes_0_other" style="overflow: hidden; overflow-wrap: break-word; resize: none; text-align: start; height: 72px;"></textarea>
+
+            <div class="flex items-center gap-2 my-2">
+              <div class="ml-auto">
+                <button data-action="visibility#remove" type="button" class="p-2 bg-red-100 text-red-500 hover:bg-red-500 hover:text-white rounded flex items-center justify-center" onclick="removePersonTemplate(event)">                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" class="h-5 w-5">
+        <path fill-rule="evenodd" d="M16.5 4.478v.227a48.816 48.816 0 013.878.512.75.75 0 11-.256 1.478l-.209-.035-1.005 13.07a3 3 0 01-2.991 2.77H8.084a3 3 0 01-2.991-2.77L4.087 6.66l-.209.035a.75.75 0 01-.256-1.478A48.567 48.567 0 017.5 4.705v-.227c0-1.564 1.213-2.9 2.816-2.951a52.662 52.662 0 013.369 0c1.603.051 2.815 1.387 2.815 2.951zm-6.136-1.452a51.196 51.196 0 013.273 0C14.39 3.05 15 3.684 15 4.478v.113a49.488 49.488 0 00-6 0v-.113c0-.794.609-1.428 1.364-1.452zm-.355 5.945a.75.75 0 10-1.5.058l.347 9a.75.75 0 101.499-.058l-.346-9zm5.48.058a.75.75 0 10-1.498-.058l-.347 9a.75.75 0 001.5.058l.345-9z" clip-rule="evenodd"></path>
+      </svg>
+
+                  </button>
+              </div>
+            </div>
+
+
+
+           </div>
+         </div>
+      </div>
+            </div>
+
+            <!-- characters: Add new-->
+            <button type="button" class="mt-4 flex gap-2 items-center justify-center w-full text-lg bg-yellow-500 text-black hover:bg-yellow-400 font-medium rounded-lg text-center py-3" data-controller="template-manager" data-action="template-manager#evaluate" onclick="addPerson()">
+
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" class="h-6 w-6">
+        <path d="M11 5a3 3 0 11-6 0 3 3 0 016 0zM2.615 16.428a1.224 1.224 0 01-.569-1.175 6.002 6.002 0 0111.908 0c.058.467-.172.92-.57 1.174A9.953 9.953 0 018 18a9.953 9.953 0 01-5.385-1.572zM16.25 5.75a.75.75 0 00-1.5 0v2h-2a.75.75 0 000 1.5h2v2a.75.75 0 001.5 0v-2h2a.75.75 0 000-1.5h-2v-2z"></path>
+      </svg>
+
+              Add a person
+
+              <!-- characters template-->
+              <template data-template-manager-target="turboStreams">
+
+                  <turbo-stream action="append" target="characters"><template>
+
+
+      <div data-controller="dynamic-form-field visibility" data-dynamic-form-field-index-value="replace_with_epoch" class="grid grid-cols-3 gap-6">
+         <div class="col-span-3 bg-white text-black p-4 rounded-xl">
+           <div class="flex flex-col gap-3">
+
+             <div class="flex gap-3">
+               <input class="block w-full flex-1 text-lg bg-neutral-200 placeholder:text-neutral-500 border-0 rounded-md focus:ring-2" placeholder="Name" data-dynamic-form-field-target="field" type="text" name="blueprint[characters_attributes][replace_with_epoch][name]" id="blueprint_characters_attributes_replace_with_epoch_name">
+
+               <input class="block w-full flex-1 text-lg bg-neutral-200 placeholder:text-neutral-500 border-0 rounded-md focus:ring-2" placeholder="Skill" data-dynamic-form-field-target="field" type="text" name="blueprint[characters_attributes][replace_with_epoch][skill]" id="blueprint_characters_attributes_replace_with_epoch_age">
+
+               <input class="block w-full flex-1 text-lg bg-neutral-200 placeholder:text-neutral-500 border-0 rounded-md focus:ring-2" placeholder="WeeklyAvailability" data-dynamic-form-field-target="field" type="text" name="blueprint[characters_attributes][replace_with_epoch][weeklyAvailability]" id="blueprint_characters_attributes_replace_with_epoch_gender">
+             </div>
+
+            <textarea class="block w-full text-lg bg-neutral-200 placeholder:text-neutral-500 border-0 rounded-md focus:ring-2" placeholder="Anything else you'd like to add about this character?" data-dynamic-form-field-target="field" data-controller="autosize" name="blueprint[characters_attributes][replace_with_epoch][other]" id="blueprint_characters_attributes_replace_with_epoch_other"></textarea>
+
+            <div class="flex items-center gap-2 my-2">
+              <input name="blueprint[characters_attributes][replace_with_epoch][main]" type="hidden" value="0" autocomplete="off"><input class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded peer" data-dynamic-form-field-target="field" type="checkbox" value="1" name="blueprint[characters_attributes][replace_with_epoch][main]" id="blueprint_characters_attributes_replace_with_epoch_main">
+              <label class="text-gray-500 peer-checked:text-blue-600" for="blueprint_characters_attributes_replace_with_epoch_main">This is the main character</label>
+
+              <div class="ml-auto">
+                  <button data-action="visibility#remove" type="button" class="p-2 bg-red-100 text-red-500 hover:bg-red-500 hover:text-white rounded flex items-center justify-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" class="h-5 w-5">
+        <path fill-rule="evenodd" d="M16.5 4.478v.227a48.816 48.816 0 013.878.512.75.75 0 11-.256 1.478l-.209-.035-1.005 13.07a3 3 0 01-2.991 2.77H8.084a3 3 0 01-2.991-2.77L4.087 6.66l-.209.035a.75.75 0 01-.256-1.478A48.567 48.567 0 017.5 4.705v-.227c0-1.564 1.213-2.9 2.816-2.951a52.662 52.662 0 013.369 0c1.603.051 2.815 1.387 2.815 2.951zm-6.136-1.452a51.196 51.196 0 013.273 0C14.39 3.05 15 3.684 15 4.478v.113a49.488 49.488 0 00-6 0v-.113c0-.794.609-1.428 1.364-1.452zm-.355 5.945a.75.75 0 10-1.5.058l.347 9a.75.75 0 101.499-.058l-.346-9zm5.48.058a.75.75 0 10-1.498-.058l-.347 9a.75.75 0 001.5.058l.345-9z" clip-rule="evenodd"></path>
+      </svg>
+
+                  </button>
+              </div>
+            </div>
+
+
+
+           </div>
+         </div>
+      </div>
+      </template></turbo-stream>
+              </template>
+            </button>
+
+          </div>
+        </div>
+
+        <div class="bg-black text-white rounded-2xl p-4 sm:p-8 my-4 sm:my-8">
+          <div class="text-2xl font-bold">⏳ What is the deadline for your project?</div>
+          <textarea class="mt-2 text-lg block shadow rounded-md bg-neutral-800 border-none focus:ring-2 outline-none w-full" placeholder="Be as precise as possible" rows="3" data-controller="autosize" name="deadline" id="deadline" style="overflow: hidden; overflow-wrap: break-word; resize: none; text-align: start; height: 100px;"></textarea>
+        </div>
+
+
+
+        <div class="mb-16">
+            <button type="submit" class="w-full rounded-xl py-5 px-5 bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 background-animate text-white text-xl sm:text-4xl font-medium cursor-pointer drop-shadow-xl transition duration-100 zoomy">
+              Generate your project plan
+            </button>
+        </div>
+
+      </form>
+{% endblock %}

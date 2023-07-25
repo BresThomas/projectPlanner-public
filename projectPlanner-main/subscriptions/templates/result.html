@@ -1,0 +1,15 @@
+{% load static tailwind_tags %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Result</title>
+    <script src="{% static 'projectManager/script.js' %}"></script>
+    {% tailwind_css %}
+</head>
+<body>
+  {% if result %}
+    {{ result|safe }}
+  {% endif %}
+</body>
+</html>

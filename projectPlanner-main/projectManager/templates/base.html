@@ -1,0 +1,14 @@
+{% load static tailwind_tags %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Project Manager</title>
+    <script src="{% static 'projectManager/script.js' %}"></script>
+    {% tailwind_css %}
+</head>
+<body>
+    {% block content %}
+    {% endblock %}
+</body>
+</html>
