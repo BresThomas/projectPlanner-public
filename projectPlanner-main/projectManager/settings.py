@@ -152,7 +152,7 @@ STRIPE_PUBLISHABLE_KEY ='pk_test_51N7LCpDCUea0j1oVlEqJd02MiJdTQiscU4k1krZrCN0ixs
 STRIPE_SECRET_KEY = ''
 STRIPE_LIVE_MODE = True  # Change to True in production
 STRIPE_PRICE_ID = 'price_1N7LPlDCUea0j1oV1DbOywlR'
-STRIPE_ENDPOINT_SECRET = 'whsec_8539fe9333ff4dd32453109e61571af1904f0585ffc0be86f7534e6fe4fd3502'
+STRIPE_ENDPOINT_SECRET = ''
 
 
 ALLOWED_HOSTS = ['project-planner-django.herokuapp.com/']
