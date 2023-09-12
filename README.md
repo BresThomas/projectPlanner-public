@@ -27,8 +27,11 @@ We welcome contributions and pull requests from the developer community. If you'
 For more information on the technologies used in projectPlanner, check out the following resources:
 
 Python (Django): https://www.django-guide.org/
+
 Tailwind: https://tailwindcss.com/
+
 JS: https://javascript.com/
+
 AI (OpenAI API): https://openai.com/api/
 
 
