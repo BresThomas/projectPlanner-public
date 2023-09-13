@@ -3,7 +3,7 @@
 ![image1](https://github.com/BresThomas/projectPlanner-public/assets/59121834/bb8590bf-48af-43ac-9139-77609b6b44f8)
 
 ## 🚀 Introduction
-Welcome to projectPlanner, a SaaS platform designed to help teams manage their projects from start to finish. Developed using Python (Django), Tailwind, JS, and AI (OpenAI API), this platform offers a seamless and intuitive experience for users to plan, organize, and track their projects.
+Welcome to projectPlanner, a SaaS platform designed to help teams manage their projects from start to finish. Developed using Python (Django), Tailwind, JS, and AI (OpenAI API), this platform offers a seamless and intuitive experience for users to plan their projects.
 
 ## 💻 Technologies Used
 
